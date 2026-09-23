@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Afghanistan | Booking</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- ============================================================
+     CSS
+     ============================================================ -->
+<style>
+  :root{
+    --ink:#12262c;
+    --cream:#f4ede0;
+    --turquoise-deep:#0f4b58;
+    --gold:#c99a3c;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-padding-top:env(safe-area-inset-top,0px);}
+  html,body{background:var(--cream);}
+  body{font-family:'Vazirmatn',sans-serif;color:var(--ink);}
+
+  header{
+    position:sticky;top:env(safe-area-inset-top,0px);z-index:10;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 28px;background:rgba(244,237,224,.95);backdrop-filter:blur(6px);
+    border-bottom:1px solid rgba(18,38,44,.08);
+  }
+  .brand{display:flex;align-items:center;gap:8px;font-weight:700;font-size:1.05rem;color:var(--turquoise-deep);}
+  nav{display:flex;gap:24px;font-size:.9rem;font-weight:500;}
+  nav a{opacity:.8;}
+  nav a.active{opacity:1;color:var(--turquoise-deep);font-weight:700;}
+  @media(max-width:680px){ nav{display:none;} }
+
+  .page-head{padding:48px 28px 8px;max-width:700px;margin:0 auto;}
+  .page-head h1{font-size:2.2rem;font-weight:800;color:var(--turquoise-deep);margin-bottom:8px;}
+  .page-head p{color:#5b6b6d;font-size:.95rem;}
+
+  .form-wrap{
+    max-width:700px;margin:24px auto 70px;padding:0 28px;
+  }
+  form{
+    background:#fff;border-radius:20px;padding:32px;
+    border:1px solid rgba(18,38,44,.08);
+    display:grid;grid-template-columns:1fr 1fr;gap:18px;
+  }
+  @media(max-width:560px){ form{grid-template-columns:1fr;} }
+
+  .field{display:flex;flex-direction:column;gap:6px;}
+  .field.full{grid-column:1/-1;}
+  label{font-size:.82rem;font-weight:600;color:#3a4c4f;}
+  input,select{
+    padding:11px 14px;border-radius:10px;border:1px solid rgba(18,38,44,.15);
+    font-family:inherit;font-size:.9rem;background:#faf7ef;
+  }
+  input:focus,select:focus{outline:2px solid var(--turquoise-deep);outline-offset:1px;}
+
+  .submit-btn{
+    grid-column:1/-1;margin-top:6px;
+    background:var(--turquoise-deep);color:#fff;border:none;
+    padding:14px;border-radius:999px;font-weight:700;font-size:.95rem;
+    cursor:pointer;transition:opacity .2s;
+  }
+  .submit-btn:hover{opacity:.9;}
+
+  .confirm-msg{
+    display:none;margin-top:16px;padding:14px 18px;border-radius:12px;
+    background:#e4f2ef;color:var(--turquoise-deep);font-size:.9rem;font-weight:600;
+  }
+  .confirm-msg.show{display:block;}
+</style>
+</head>
+
+<!-- ============================================================
+     HTML
+     ============================================================ -->
+<body>
+
+<header>
+  <div class="brand">🏔️ Afghanistan</div>
+  <nav>
+    <a href="https://claude.ai/artifact/MFACpYvFeTdbJZQjytvX31">Home</a>
+    <a href="https://claude.ai/artifact/6xMX1VD4wBLMuXXb2BeQmi">Destinations</a>
+    <a href="#" class="active">Booking</a>
+    <a href="https://claude.ai/artifact/NWaD1Cf2L84zkCPZsNJ7HY">Gallery</a>
+  </nav>
+</header>
+
+<div class="page-head">
+  <h1>Book a tour</h1>
+  <p>Fill in the form below and we will get back to you with the details of your trip.</p>
+</div>
+
+<div class="form-wrap">
+  <form id="bookingForm">
+    <div class="field">
+      <label for="fullName">Full name</label>
+      <input type="text" id="fullName" required>
+    </div>
+    <div class="field">
+      <label for="email">Email</label>
+      <input type="email" id="email" required>
+    </div>
+    <div class="field">
+      <label for="destination">Destination</label>
+      <select id="destination">
+        <option>Band-e Amir</option>
+        <option>Minaret of Jam</option>
+        <option>Mazar-i-Sharif</option>
+        <option>Herat</option>
+        <option>Bamyan</option>
+        <option>Kabul</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="guests">Guests</label>
+      <input type="number" id="guests" min="1" value="1">
+    </div>
+    <div class="field">
+      <label for="startDate">Start date</label>
+      <input type="date" id="startDate" required>
+    </div>
+    <div class="field">
+      <label for="endDate">End date</label>
+      <input type="date" id="endDate" required>
+    </div>
+    <div class="field full">
+      <label for="notes">Notes</label>
+      <input type="text" id="notes" placeholder="Anything we should know?">
+    </div>
+
+    <button type="submit" class="submit-btn">Request booking</button>
+    <div class="confirm-msg" id="confirmMsg">Thanks! Your request has been noted.</div>
+  </form>
+</div>
+
+<!-- ============================================================
+     JavaScript
+     ============================================================ -->
+<script>
+  const form = document.getElementById('bookingForm');
+  const confirmMsg = document.getElementById('confirmMsg');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    confirmMsg.classList.add('show');
+    form.reset();
+  });
+</script>
+
+</body>
+</html>
