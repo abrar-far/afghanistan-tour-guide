@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Afghanistan | Home</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- ============================================================
+     CSS
+     ============================================================ -->
+<style>
+  :root{
+    --ink:#12262c;
+    --cream:#f4ede0;
+    --turquoise-deep:#0f4b58;
+    --gold:#c99a3c;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-padding-top:env(safe-area-inset-top,0px);}
+  html,body{height:100%;background:var(--cream);}
+  body{
+    font-family:'Vazirmatn',sans-serif;
+    color:#fff;
+  }
+
+  .hero{
+    position:relative;
+    min-height:100svh;
+    overflow:hidden;
+    background:repeating-linear-gradient(45deg,#2b5560,#2b5560 18px,#264e58 18px,#264e58 36px);
+  }
+
+  /* Background image layer. Fill the img src with your own photo. */
+  .hero-image{
+    position:absolute;inset:0;z-index:0;
+    width:100%;height:100%;
+    object-fit:cover;
+  }
+
+  /* Darkening layer on top of the image */
+  .hero-dark{
+    position:absolute;inset:0;z-index:1;
+    background:linear-gradient(180deg, rgba(4,12,15,.72), rgba(4,10,13,.85));
+  }
+
+  /* All interactive elements sit above the image, absolutely positioned */
+  header{
+    position:absolute;top:0;left:0;right:0;z-index:2;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:calc(22px + env(safe-area-inset-top,0px)) 28px 22px;
+  }
+  .brand{display:flex;align-items:center;gap:8px;font-weight:700;font-size:1.05rem;}
+  nav{display:flex;gap:24px;font-size:.9rem;font-weight:500;}
+  nav a{color:#fff;opacity:.85;}
+  nav a:hover{opacity:1;}
+  @media(max-width:680px){ nav{display:none;} }
+
+  .hero-body{
+    position:absolute;top:50%;right:32px;left:32px;
+    transform:translateY(-50%);
+    z-index:2;max-width:420px;
+  }
+  .hero-list{list-style:none;display:flex;flex-direction:column;gap:18px;}
+  .hero-list li{font-size:.9rem;opacity:.65;cursor:pointer;transition:opacity .2s;}
+  .hero-list li:hover{opacity:.9;}
+  .hero-list li.active{opacity:1;}
+  .hero-list li.active .t{font-size:1.5rem;font-weight:700;display:block;}
+  .hero-list .n{font-size:.75rem;opacity:.7;margin-left:6px;}
+  .hero-list .s{font-size:.78rem;opacity:.6;display:block;margin-top:2px;}
+
+  .location-tag{
+    position:absolute;left:32px;bottom:150px;z-index:2;text-align:left;
+  }
+  .location-tag b{font-size:2.6rem;font-weight:800;display:block;line-height:1;}
+  .location-tag span{font-size:.85rem;opacity:.8;}
+
+  .search-bar{
+    position:absolute;right:28px;bottom:calc(70px + env(safe-area-inset-bottom,0px));
+    z-index:2;
+    display:flex;align-items:center;gap:10px;
+    background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.3);
+    border-radius:999px;padding:12px 18px;
+    max-width:260px;font-size:.85rem;
+    backdrop-filter:blur(4px);
+    cursor:pointer;
+  }
+  .search-bar:hover{background:rgba(255,255,255,.22);}
+
+  .socials{
+    position:absolute;right:28px;bottom:calc(24px + env(safe-area-inset-bottom,0px));
+    z-index:2;
+    display:flex;gap:16px;font-size:1rem;opacity:.85;
+  }
+  .socials a{color:#fff;}
+</style>
+</head>
+
+<!-- ============================================================
+     HTML
+     ============================================================ -->
+<body>
+
+<section class="hero">
+  <img class="hero-image" src="" alt="Afghanistan background">
+  <div class="hero-dark"></div>
+
+  <header>
+    <div class="brand">🏔️ Afghanistan</div>
+    <nav>
+      <a href="https://claude.ai/artifact/6xMX1VD4wBLMuXXb2BeQmi">Destinations</a>
+      <a href="https://claude.ai/artifact/QsEyMcHQPFvJmRgjHQZare">Booking</a>
+      <a href="https://claude.ai/artifact/NWaD1Cf2L84zkCPZsNJ7HY">Gallery</a>
+    </nav>
+  </header>
+
+  <div class="hero-body">
+    <ul class="hero-list" id="heroList">
+      <li data-title="Trips" data-sub="280 trips available"><span class="n">01</span> Trips <span class="s">280 trips available</span></li>
+      <li data-title="Destinations" data-sub="Discover more places"><span class="n">02</span> Destinations <span class="s">Discover more places</span></li>
+      <li class="active" data-title="Tour guide" data-sub="Plan your next adventure"><span class="n">03</span><span class="t">Tour guide</span><span class="s">Plan your next adventure</span></li>
+      <li data-title="Collections" data-sub="Find your ideal trip"><span class="n">04</span> Collections <span class="s">Find your ideal trip</span></li>
+    </ul>
+  </div>
+
+  <div class="location-tag">
+    <b>Afghanistan</b>
+    <span>Band-e Amir</span>
+  </div>
+
+  <div class="search-bar" id="searchBar">🔍 Find a tour</div>
+
+  <div class="socials">
+    <a href="#">✈</a><a href="#">◎</a><a href="#">♪</a><a href="#">✎</a>
+  </div>
+</section>
+
+<!-- ============================================================
+     JavaScript
+     ============================================================ -->
+<script>
+  // Activate a list item on click
+  const items = document.querySelectorAll('#heroList li');
+  items.forEach(li => {
+    li.addEventListener('click', () => {
+      items.forEach(i => i.classList.remove('active'));
+      li.classList.add('active');
+    });
+  });
+
+  // Sample click handler for the search bar
+  document.getElementById('searchBar').addEventListener('click', () => {
+    alert('Connect your tour search here.');
+  });
+</script>
+
+</body>
+</html>
