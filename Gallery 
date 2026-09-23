@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Afghanistan | Gallery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- ============================================================
+     CSS
+     ============================================================ -->
+<style>
+  :root{
+    --ink:#12262c;
+    --cream:#f4ede0;
+    --turquoise-deep:#0f4b58;
+    --gold:#c99a3c;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-padding-top:env(safe-area-inset-top,0px);}
+  html,body{background:var(--cream);}
+  body{font-family:'Vazirmatn',sans-serif;color:var(--ink);}
+
+  header{
+    position:sticky;top:env(safe-area-inset-top,0px);z-index:10;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 28px;background:rgba(244,237,224,.95);backdrop-filter:blur(6px);
+    border-bottom:1px solid rgba(18,38,44,.08);
+  }
+  .brand{display:flex;align-items:center;gap:8px;font-weight:700;font-size:1.05rem;color:var(--turquoise-deep);}
+  nav{display:flex;gap:24px;font-size:.9rem;font-weight:500;}
+  nav a{opacity:.8;}
+  nav a.active{opacity:1;color:var(--turquoise-deep);font-weight:700;}
+  @media(max-width:680px){ nav{display:none;} }
+
+  .page-head{padding:48px 28px 8px;max-width:700px;margin:0 auto;}
+  .page-head h1{font-size:2.2rem;font-weight:800;color:var(--turquoise-deep);margin-bottom:8px;}
+  .page-head p{color:#5b6b6d;font-size:.95rem;}
+
+  .gallery-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+    padding:32px 28px 70px;max-width:1100px;margin:0 auto;
+  }
+  @media(max-width:760px){.gallery-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:460px){.gallery-grid{grid-template-columns:1fr;}}
+
+  .gwrap{
+    position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/3;
+    background:#274e57;cursor:pointer;
+  }
+  .gwrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .gwrap span{
+    position:absolute;left:12px;bottom:10px;z-index:2;color:#fff;
+    font-size:.85rem;font-weight:600;
+    text-shadow:0 1px 4px rgba(0,0,0,.6);
+  }
+
+  /* Lightbox */
+  .lightbox{
+    position:fixed;inset:0;z-index:50;display:none;
+    align-items:center;justify-content:center;
+    background:rgba(4,10,13,.9);padding:24px;
+  }
+  .lightbox.show{display:flex;}
+  .lightbox-inner{max-width:800px;width:100%;}
+  .lightbox-inner img{width:100%;border-radius:12px;max-height:70vh;object-fit:cover;background:#274e57;}
+  .lightbox-caption{color:#fff;text-align:center;margin-top:12px;font-size:.9rem;}
+  .lightbox-close{
+    position:absolute;top:20px;right:20px;
+    color:#fff;font-size:1.6rem;cursor:pointer;
+  }
+</style>
+</head>
+
+<!-- ============================================================
+     HTML
+     ============================================================ -->
+<body>
+
+<header>
+  <div class="brand">🏔️ Afghanistan</div>
+  <nav>
+    <a href="https://claude.ai/artifact/MFACpYvFeTdbJZQjytvX31">Home</a>
+    <a href="https://claude.ai/artifact/6xMX1VD4wBLMuXXb2BeQmi">Destinations</a>
+    <a href="https://claude.ai/artifact/QsEyMcHQPFvJmRgjHQZare">Booking</a>
+    <a href="#" class="active">Gallery</a>
+  </nav>
+</header>
+
+<div class="page-head">
+  <h1>Gallery</h1>
+  <p>Moments from the land of mountains.</p>
+</div>
+
+<div class="gallery-grid" id="galleryGrid">
+  <div class="gwrap" data-caption="Band-e Amir">
+    <img src="" alt="Band-e Amir">
+    <span>Band-e Amir</span>
+  </div>
+  <div class="gwrap" data-caption="Minaret of Jam">
+    <img src="" alt="Minaret of Jam">
+    <span>Minaret of Jam</span>
+  </div>
+  <div class="gwrap" data-caption="Mazar-i-Sharif">
+    <img src="" alt="Mazar-i-Sharif">
+    <span>Mazar-i-Sharif</span>
+  </div>
+  <div class="gwrap" data-caption="Herat">
+    <img src="" alt="Herat">
+    <span>Herat</span>
+  </div>
+  <div class="gwrap" data-caption="Bamyan">
+    <img src="" alt="Bamyan">
+    <span>Bamyan</span>
+  </div>
+  <div class="gwrap" data-caption="Kabul">
+    <img src="" alt="Kabul">
+    <span>Kabul</span>
+  </div>
+</div>
+
+<div class="lightbox" id="lightbox">
+  <span class="lightbox-close" id="lightboxClose">✕</span>
+  <div class="lightbox-inner">
+    <img id="lightboxImage" src="" alt="">
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
+</div>
+
+<!-- ============================================================
+     JavaScript
+     ============================================================ -->
+<script>
+  const items = document.querySelectorAll('#galleryGrid .gwrap');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImage = document.getElementById('lightboxImage');
+  const lightboxCaption = document.getElementById('lightboxCaption');
+  const lightboxClose = document.getElementById('lightboxClose');
+
+  items.forEach(item => {
+    item.addEventListener('click', () => {
+      const imgSrc = item.querySelector('img').src;
+      lightboxImage.src = imgSrc;
+      lightboxCaption.textContent = item.dataset.caption;
+      lightbox.classList.add('show');
+    });
+  });
+
+  lightboxClose.addEventListener('click', () => {
+    lightbox.classList.remove('show');
+  });
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) lightbox.classList.remove('show');
+  });
+</script>
+
+</body>
+</html>
