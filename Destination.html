@@ -1,180 +1,303 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fa" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Afghanistan | Destinations</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Afghanistan | Destinations</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
-<!-- ============================================================
+    <!-- ============================================================
      CSS
      ============================================================ -->
-<style>
-  :root{
-    --ink:#12262c;
-    --cream:#f4ede0;
-    --turquoise-deep:#0f4b58;
-    --gold:#c99a3c;
-    padding-top:env(safe-area-inset-top,0px);
-    padding-bottom:env(safe-area-inset-bottom,0px);
-  }
-  *{box-sizing:border-box;margin:0;padding:0;}
-  html{scroll-padding-top:env(safe-area-inset-top,0px);}
-  html,body{background:var(--cream);}
-  body{font-family:'Vazirmatn',sans-serif;color:var(--ink);}
+    <style>
+      :root {
+        --ink: #12262c;
+        --cream: #f4ede0;
+        --turquoise-deep: #0f4b58;
+        --gold: #c99a3c;
+        padding-top: env(safe-area-inset-top, 0px);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-padding-top: env(safe-area-inset-top, 0px);
+      }
+      html,
+      body {
+        background: var(--cream);
+      }
+      body {
+        font-family: "Vazirmatn", sans-serif;
+        color: var(--ink);
+      }
 
-  header{
-    position:sticky;top:env(safe-area-inset-top,0px);z-index:10;
-    display:flex;align-items:center;justify-content:space-between;
-    padding:18px 28px;background:rgba(244,237,224,.95);backdrop-filter:blur(6px);
-    border-bottom:1px solid rgba(18,38,44,.08);
-  }
-  .brand{display:flex;align-items:center;gap:8px;font-weight:700;font-size:1.05rem;color:var(--turquoise-deep);}
-  nav{display:flex;gap:24px;font-size:.9rem;font-weight:500;}
-  nav a{opacity:.8;}
-  nav a.active{opacity:1;color:var(--turquoise-deep);font-weight:700;}
-  @media(max-width:680px){ nav{display:none;} }
+      header {
+        position: sticky;
+        top: env(safe-area-inset-top, 0px);
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 28px;
+        background: rgba(244, 237, 224, 0.95);
+        backdrop-filter: blur(6px);
+        border-bottom: 1px solid rgba(18, 38, 44, 0.08);
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 700;
+        font-size: 1.05rem;
+        color: var(--turquoise-deep);
+        text-decoration: none;
+      }
+      nav {
+        display: flex;
+        gap: 24px;
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+      nav a {
+        opacity: 0.8;
+        color: inherit;
+        text-decoration: none;
+        transition: opacity 0.2s;
+      }
+      nav a:hover {
+        opacity: 1;
+      }
+      nav a.active {
+        opacity: 1;
+        color: var(--turquoise-deep);
+        font-weight: 700;
+      }
+      @media (max-width: 680px) {
+        nav {
+          display: none;
+        }
+      }
 
-  .page-head{padding:48px 28px 8px;max-width:1100px;margin:0 auto;}
-  .page-head h1{font-size:2.2rem;font-weight:800;color:var(--turquoise-deep);margin-bottom:8px;}
-  .page-head p{color:#5b6b6d;font-size:.95rem;max-width:480px;}
+      .page-head {
+        padding: 48px 28px 8px;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .page-head h1 {
+        font-size: 2.2rem;
+        font-weight: 800;
+        color: var(--turquoise-deep);
+        margin-bottom: 8px;
+      }
+      .page-head p {
+        color: #5b6b6d;
+        font-size: 0.95rem;
+        max-width: 480px;
+      }
 
-  .grid{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
-    padding:32px 28px 70px;max-width:1100px;margin:0 auto;
-  }
-  @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr);}}
-  @media(max-width:560px){.grid{grid-template-columns:1fr;}}
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        padding: 32px 28px 70px;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      @media (max-width: 900px) {
+        .grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 560px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
 
-  .card{
-    background:#fff;border-radius:18px;overflow:hidden;
-    border:1px solid rgba(18,38,44,.08);cursor:pointer;
-    transition:transform .2s ease;
-  }
-  .card:hover{transform:translateY(-4px);}
+      .card {
+        background: #fff;
+        border-radius: 18px;
+        overflow: hidden;
+        border: 1px solid rgba(18, 38, 44, 0.08);
+        cursor: pointer;
+        transition: transform 0.2s ease;
+      }
+      .card:hover {
+        transform: translateY(-4px);
+      }
 
-  .card-image-wrap{position:relative;aspect-ratio:4/3;background:#274e57;overflow:hidden;}
-  .card-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
-  .card-dark{position:absolute;inset:0;background:linear-gradient(180deg, rgba(4,12,15,0) 40%, rgba(4,10,13,.7));}
-  .card-tag{position:absolute;left:14px;bottom:12px;z-index:2;color:#fff;font-weight:700;font-size:1.05rem;}
+      .card-image-wrap {
+        position: relative;
+        aspect-ratio: 4/3;
+        background: #274e57;
+        overflow: hidden;
+      }
+      .card-image {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .card-dark {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(4, 12, 15, 0) 40%,
+          rgba(4, 10, 13, 0.7)
+        );
+      }
+      .card-tag {
+        position: absolute;
+        left: 14px;
+        bottom: 12px;
+        z-index: 2;
+        color: #fff;
+        font-weight: 700;
+        font-size: 1.05rem;
+      }
 
-  .card-body{padding:16px 18px 20px;}
-  .card-body p{font-size:.85rem;color:#5b6b6d;margin-top:4px;}
-  .card-body .btn{
-    display:inline-block;margin-top:12px;padding:8px 16px;
-    border-radius:999px;background:var(--turquoise-deep);color:#fff;
-    font-size:.82rem;font-weight:600;
-  }
-</style>
-</head>
+      .card-body {
+        padding: 16px 18px 20px;
+      }
+      .card-body p {
+        font-size: 0.85rem;
+        color: #5b6b6d;
+        margin-top: 4px;
+      }
+      .card-body .btn {
+        display: inline-block;
+        margin-top: 12px;
+        padding: 8px 16px;
+        border-radius: 999px;
+        background: var(--turquoise-deep);
+        color: #fff;
+        font-size: 0.82rem;
+        font-weight: 600;
+      }
+    </style>
+  </head>
 
-<!-- ============================================================
+  <!-- ============================================================
      HTML
      ============================================================ -->
-<body>
+  <body>
+    <header>
+      <a href="index.html" class="brand">🏔️ Afghanistan</a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="destinations.html" class="active">Destinations</a>
+        <a href="booking.html">Booking</a>
+        <a href="gallery.html">Gallery</a>
+      </nav>
+    </header>
 
-<header>
-  <div class="brand">🏔️ Afghanistan</div>
-  <nav>
-    <!--اینجا صحفه ها باهم لنک می شود -->
-  </nav>
-</header>
+    <div class="page-head">
+      <h1>Destinations</h1>
+      <p>
+        Explore the places worth visiting across Afghanistan, from turquoise
+        lakes to ancient minarets.
+      </p>
+    </div>
 
-<div class="page-head">
-  <h1>Destinations</h1>
-  <p>Explore the places worth visiting across Afghanistan, from turquoise lakes to ancient minarets.</p>
-</div>
+    <div class="grid" id="destinationGrid">
+      <div class="card" data-name="Band-e Amir">
+        <div class="card-image-wrap">
+          <img class="card-image" src="" alt="Band-e Amir" />
+          <div class="card-dark"></div>
+          <span class="card-tag">Band-e Amir</span>
+        </div>
+        <div class="card-body">
+          <p>Turquoise lakes, Bamyan province</p>
+          <span class="btn">View tours</span>
+        </div>
+      </div>
 
-<div class="grid" id="destinationGrid">
+      <div class="card" data-name="Minaret of Jam">
+        <div class="card-image-wrap">
+          <img class="card-image" src="" alt="Minaret of Jam" />
+          <div class="card-dark"></div>
+          <span class="card-tag">Minaret of Jam</span>
+        </div>
+        <div class="card-body">
+          <p>World heritage site, Ghor province</p>
+          <span class="btn">View tours</span>
+        </div>
+      </div>
 
-  <div class="card" data-name="Band-e Amir">
-    <div class="card-image-wrap">
-      <img class="card-image" src="" alt="Band-e Amir">
-      <div class="card-dark"></div>
-      <span class="card-tag">Band-e Amir</span>
-    </div>
-    <div class="card-body">
-      <p>Turquoise lakes, Bamyan province</p>
-      <span class="btn">View tours</span>
-    </div>
-  </div>
+      <div class="card" data-name="Mazar-i-Sharif">
+        <div class="card-image-wrap">
+          <img class="card-image" src="" alt="Mazar-i-Sharif" />
+          <div class="card-dark"></div>
+          <span class="card-tag">Mazar-i-Sharif</span>
+        </div>
+        <div class="card-body">
+          <p>Shrine of Hazrat Ali, Balkh province</p>
+          <span class="btn">View tours</span>
+        </div>
+      </div>
 
-  <div class="card" data-name="Minaret of Jam">
-    <div class="card-image-wrap">
-      <img class="card-image" src="" alt="Minaret of Jam">
-      <div class="card-dark"></div>
-      <span class="card-tag">Minaret of Jam</span>
-    </div>
-    <div class="card-body">
-      <p>World heritage site, Ghor province</p>
-      <span class="btn">View tours</span>
-    </div>
-  </div>
+      <div class="card" data-name="Herat">
+        <div class="card-image-wrap">
+          <img class="card-image" src="" alt="Herat" />
+          <div class="card-dark"></div>
+          <span class="card-tag">Herat</span>
+        </div>
+        <div class="card-body">
+          <p>City of poets and the Great Mosque</p>
+          <span class="btn">View tours</span>
+        </div>
+      </div>
 
-  <div class="card" data-name="Mazar-i-Sharif">
-    <div class="card-image-wrap">
-      <img class="card-image" src="" alt="Mazar-i-Sharif">
-      <div class="card-dark"></div>
-      <span class="card-tag">Mazar-i-Sharif</span>
-    </div>
-    <div class="card-body">
-      <p>Shrine of Hazrat Ali, Balkh province</p>
-      <span class="btn">View tours</span>
-    </div>
-  </div>
+      <div class="card" data-name="Bamyan Buddhas">
+        <div class="card-image-wrap">
+          <img class="card-image" src="" alt="Bamyan" />
+          <div class="card-dark"></div>
+          <span class="card-tag">Bamyan</span>
+        </div>
+        <div class="card-body">
+          <p>Ancient valley and rock-cut niches</p>
+          <span class="btn">View tours</span>
+        </div>
+      </div>
 
-  <div class="card" data-name="Herat">
-    <div class="card-image-wrap">
-      <img class="card-image" src="" alt="Herat">
-      <div class="card-dark"></div>
-      <span class="card-tag">Herat</span>
+      <div class="card" data-name="Kabul">
+        <div class="card-image-wrap">
+          <img class="card-image" src="" alt="Kabul" />
+          <div class="card-dark"></div>
+          <span class="card-tag">Kabul</span>
+        </div>
+        <div class="card-body">
+          <p>Capital city, gardens and old bazaars</p>
+          <span class="btn">View tours</span>
+        </div>
+      </div>
     </div>
-    <div class="card-body">
-      <p>City of poets and the Great Mosque</p>
-      <span class="btn">View tours</span>
-    </div>
-  </div>
 
-  <div class="card" data-name="Bamyan Buddhas">
-    <div class="card-image-wrap">
-      <img class="card-image" src="" alt="Bamyan">
-      <div class="card-dark"></div>
-      <span class="card-tag">Bamyan</span>
-    </div>
-    <div class="card-body">
-      <p>Ancient valley and rock-cut niches</p>
-      <span class="btn">View tours</span>
-    </div>
-  </div>
-
-  <div class="card" data-name="Kabul">
-    <div class="card-image-wrap">
-      <img class="card-image" src="" alt="Kabul">
-      <div class="card-dark"></div>
-      <span class="card-tag">Kabul</span>
-    </div>
-    <div class="card-body">
-      <p>Capital city, gardens and old bazaars</p>
-      <span class="btn">View tours</span>
-    </div>
-  </div>
-
-</div>
-
-<!-- ============================================================
+    <!-- ============================================================
      JavaScript
      ============================================================ -->
-<script>
-  // Sample click handler for each destination card
-  const cards = document.querySelectorAll('#destinationGrid .card');
-  cards.forEach(card => {
-    card.addEventListener('click', () => {
-      alert('Open tour details for: ' + card.dataset.name);
-    });
-  });
-</script>
-
-</body>
+    <script>
+      // Sample click handler for each destination card
+      const cards = document.querySelectorAll("#destinationGrid .card");
+      cards.forEach((card) => {
+        card.addEventListener("click", () => {
+          window.location.href = "booking.html";
+        });
+      });
+    </script>
+  </body>
 </html>
