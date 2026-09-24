@@ -14,9 +14,6 @@
       rel="stylesheet"
     />
 
-    <!-- ============================================================
-     CSS
-     ============================================================ -->
     <style>
       * {
         box-sizing: border-box;
@@ -42,7 +39,6 @@
         background-size: cover;
         background-position: center;
         display: grid;
-
         grid-template-columns: 1fr 340px;
         transition: all 0.3s ease;
       }
@@ -193,9 +189,6 @@
         stroke: currentColor;
       }
 
-      /* ============================================================
-        Sidebar)
-         ============================================================ */
       .sidebar {
         grid-column: 2;
         position: relative;
@@ -308,10 +301,6 @@
         transition: opacity 0.3s ease;
       }
 
-      /* ============================================================
-        (Responsive Media Queries)
-         ============================================================ */
-
       @media (max-width: 1100px) {
         .hero-container {
           grid-template-columns: 1fr 280px;
@@ -411,14 +400,11 @@
     <div class="hero-container">
       <div class="hero-dark-overlay"></div>
 
-      <!-- ============================================================
-     
-           ============================================================ -->
       <main class="main-content">
         <nav class="top-nav">
-          <a href="#" class="active">Destinations</a>
-          <a href="#">Bookings</a>
-          <a href="#">Gallery</a>
+          <a href="Home.html" class="active">Destinations</a>
+          <a href="bookings.html">Bookings</a>
+          <a href="gallery.html">Gallery</a>
         </nav>
 
         <div class="hero-bottom-right">
@@ -443,9 +429,6 @@
         </div>
       </main>
 
-      <!-- ============================================================
-          Sidebar)
-           ============================================================ -->
       <aside class="sidebar" id="sidebar">
         <div class="brand">
           <svg viewBox="0 0 512 512">
@@ -508,9 +491,6 @@
       </aside>
     </div>
 
-    <!-- ============================================================
-     JavaScript
-     ============================================================ -->
     <script>
       const items = document.querySelectorAll("#heroList li");
       items.forEach((li) => {
@@ -520,7 +500,6 @@
         });
       });
 
-      //
       const menuToggle = document.getElementById("menuToggle");
       const sidebar = document.getElementById("sidebar");
       const sidebarOverlay = document.getElementById("sidebarOverlay");

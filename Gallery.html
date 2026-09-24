@@ -14,9 +14,6 @@
       rel="stylesheet"
     />
 
-    <!-- ============================================================
-     CSS
-     ============================================================ -->
     <style>
       :root {
         --ink: #12262c;
@@ -62,6 +59,7 @@
         font-weight: 700;
         font-size: 1.05rem;
         color: var(--turquoise-deep);
+        text-decoration: none;
       }
       nav {
         display: flex;
@@ -71,6 +69,8 @@
       }
       nav a {
         opacity: 0.8;
+        color: inherit;
+        text-decoration: none;
       }
       nav a.active {
         opacity: 1;
@@ -144,7 +144,6 @@
         text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
       }
 
-      /* Lightbox */
       .lightbox {
         position: fixed;
         inset: 0;
@@ -186,19 +185,13 @@
     </style>
   </head>
 
-  <!-- ============================================================
-     HTML
-     ============================================================ -->
   <body>
     <header>
-      <div class="brand">🏔️ Afghanistan</div>
+      <a href="Home.html" class="brand">🏔️ Afghanistan</a>
       <nav>
-        <a href="https://claude.ai/artifact/MFACpYvFeTdbJZQjytvX31">Home</a>
-        <a href="https://claude.ai/artifact/6xMX1VD4wBLMuXXb2BeQmi"
-          >Destinations</a
-        >
-        <a href="https://claude.ai/artifact/QsEyMcHQPFvJmRgjHQZare">Booking</a>
-        <a href="#" class="active">Gallery</a>
+        <a href="Home.html">Destinations</a>
+        <a href="bookings.html">Booking</a>
+        <a href="gallery.html" class="active">Gallery</a>
       </nav>
     </header>
 
@@ -242,9 +235,6 @@
       </div>
     </div>
 
-    <!-- ============================================================
-     JavaScript
-     ============================================================ -->
     <script>
       const items = document.querySelectorAll("#galleryGrid .gwrap");
       const lightbox = document.getElementById("lightbox");
