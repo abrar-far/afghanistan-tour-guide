@@ -33,7 +33,6 @@
         overflow-x: hidden;
       }
 
-
       .hero-container {
         position: relative;
         width: 100vw;
@@ -43,7 +42,7 @@
         background-size: cover;
         background-position: center;
         display: grid;
-      
+
         grid-template-columns: 1fr 340px;
         transition: all 0.3s ease;
       }
@@ -93,7 +92,7 @@
 
       .top-nav {
         display: flex;
-        justify-content: flex-start; 
+        justify-content: flex-start;
         gap: 36px;
       }
 
@@ -123,11 +122,11 @@
       }
 
       .hero-bottom-right {
-        align-self: flex-start; 
+        align-self: flex-start;
         text-align: right;
         display: flex;
         flex-direction: column;
-        align-items: flex-start; 
+        align-items: flex-start;
         margin-bottom: 30px;
         margin-right: 2%;
         transition: all 0.3s ease;
@@ -195,10 +194,10 @@
       }
 
       /* ============================================================
-         نوار کناری (سمت چپ Sidebar)
+        Sidebar)
          ============================================================ */
       .sidebar {
-        grid-column: 2; /* قرارگیری در سمت چپ */
+        grid-column: 2;
         position: relative;
         z-index: 50;
         background: rgba(10, 22, 28, 0.55);
@@ -208,7 +207,7 @@
         flex-direction: column;
         justify-content: space-between;
         padding: 40px 32px;
-        border-right: 1px solid rgba(255, 255, 255, 0.08); 
+        border-right: 1px solid rgba(255, 255, 255, 0.08);
         transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       }
 
@@ -299,7 +298,6 @@
         fill: currentColor;
       }
 
-     
       .sidebar-overlay {
         display: none;
         position: fixed;
@@ -314,7 +312,6 @@
         (Responsive Media Queries)
          ============================================================ */
 
-  
       @media (max-width: 1100px) {
         .hero-container {
           grid-template-columns: 1fr 280px;
@@ -327,7 +324,6 @@
         }
       }
 
-  
       @media (max-width: 850px) {
         .hero-container {
           grid-template-columns: 1fr;
@@ -338,12 +334,10 @@
           padding: 80px 30px 40px 30px;
         }
 
-    
         .mobile-menu-btn {
           display: block;
         }
 
-     
         .sidebar {
           grid-column: 1;
           position: fixed;
@@ -369,7 +363,6 @@
           gap: 20px;
         }
 
-  
         .hero-bottom-right {
           align-self: center;
           align-items: center;
@@ -387,7 +380,6 @@
         }
       }
 
-      /* موبایل‌های بسیار کوچک */
       @media (max-width: 480px) {
         .main-content {
           padding: 80px 20px 30px 20px;
@@ -408,7 +400,6 @@
   </head>
 
   <body>
-  
     <button class="mobile-menu-btn" id="menuToggle">
       <svg viewBox="0 0 24 24">
         <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
@@ -424,15 +415,12 @@
      
            ============================================================ -->
       <main class="main-content">
-      
         <nav class="top-nav">
           <a href="#" class="active">Destinations</a>
           <a href="#">Bookings</a>
           <a href="#">Gallery</a>
-          <a href="#">Find a tour</a>
         </nav>
 
-       
         <div class="hero-bottom-right">
           <h1 class="location-title">Afghanistan</h1>
           <span class="location-subtitle">Band-e Amir</span>
@@ -459,7 +447,6 @@
           Sidebar)
            ============================================================ -->
       <aside class="sidebar" id="sidebar">
-        <!-- لوگو -->
         <div class="brand">
           <svg viewBox="0 0 512 512">
             <path
@@ -488,7 +475,6 @@
           </li>
         </ul>
 
-        <!-- شبکه‌های اجتماعی -->
         <div class="socials">
           <a href="#" title="Twitter">
             <svg viewBox="0 0 24 24">
@@ -526,7 +512,6 @@
      JavaScript
      ============================================================ -->
     <script>
-      // ۱. تعویض حالت فعال در لیست منوی کناری
       const items = document.querySelectorAll("#heroList li");
       items.forEach((li) => {
         li.addEventListener("click", () => {
@@ -535,7 +520,7 @@
         });
       });
 
-      // 
+      //
       const menuToggle = document.getElementById("menuToggle");
       const sidebar = document.getElementById("sidebar");
       const sidebarOverlay = document.getElementById("sidebarOverlay");
