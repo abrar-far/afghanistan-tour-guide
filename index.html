@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Afghanistan | Travel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+        font-family: "Vazirmatn", sans-serif;
+        color: #fff;
+        overflow-x: hidden;
+      }
+
+      .hero-container {
+        position: relative;
+        width: 100vw;
+        min-height: 100vh;
+        background-image: url("images/Somewhere in Afghanistan_.jpg");
+        background-color: #111;
+        background-size: cover;
+        background-position: center;
+        display: grid;
+        grid-template-columns: 1fr 340px;
+        transition: all 0.3s ease;
+      }
+
+      .hero-dark-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(5, 15, 20, 0.35),
+          rgba(5, 12, 18, 0.55)
+        );
+        z-index: 1;
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 100;
+        background: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #fff;
+        padding: 10px;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      .mobile-menu-btn svg {
+        width: 24px;
+        height: 24px;
+        fill: currentColor;
+      }
+
+      .main-content {
+        grid-column: 1;
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 40px 60px 60px 60px;
+        height: 100vh;
+      }
+
+      .top-nav {
+        display: flex;
+        justify-content: flex-start;
+        gap: 36px;
+      }
+
+      .top-nav a {
+        color: rgba(255, 255, 255, 0.75);
+        text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: 500;
+        position: relative;
+        padding-bottom: 6px;
+        transition: color 0.3s;
+      }
+
+      .top-nav a:hover,
+      .top-nav a.active {
+        color: #fff;
+      }
+
+      .top-nav a.active::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 2px;
+        background: #fff;
+      }
+
+      .hero-bottom-right {
+        align-self: flex-start;
+        text-align: right;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 30px;
+        margin-right: 2%;
+        transition: all 0.3s ease;
+      }
+
+      .location-title {
+        font-size: 5.5rem;
+        font-weight: 800;
+        line-height: 0.9;
+        margin-bottom: 8px;
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        transition: font-size 0.3s ease;
+      }
+
+      .location-subtitle {
+        font-size: 1.2rem;
+        font-weight: 500;
+        opacity: 0.85;
+        letter-spacing: 1px;
+        margin-bottom: 24px;
+      }
+
+      .search-box {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border: 1.5px solid rgba(255, 255, 255, 0.5);
+        border-radius: 30px;
+        padding: 10px 20px;
+        width: 290px;
+        background: rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(8px);
+        transition: border-color 0.3s;
+      }
+
+      .search-box:focus-within {
+        border-color: #fff;
+      }
+
+      .search-box input {
+        background: transparent;
+        border: none;
+        outline: none;
+        color: #fff;
+        font-family: inherit;
+        font-size: 0.95rem;
+        width: 100%;
+      }
+
+      .search-box input::placeholder {
+        color: rgba(255, 255, 255, 0.75);
+      }
+
+      .search-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .search-icon svg {
+        width: 18px;
+        height: 18px;
+        stroke: currentColor;
+      }
+
+      .sidebar {
+        grid-column: 2;
+        position: relative;
+        z-index: 50;
+        background: rgba(10, 22, 28, 0.55);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 40px 32px;
+        border-right: 1px solid rgba(255, 255, 255, 0.08);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 1.4rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
+
+      .brand svg {
+        fill: #fff;
+        width: 32px;
+        height: 32px;
+      }
+
+      .hero-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+      }
+
+      .hero-list li {
+        cursor: pointer;
+        opacity: 0.6;
+        transition: all 0.3s ease;
+      }
+
+      .hero-list li:hover {
+        opacity: 0.9;
+      }
+
+      .hero-list li.active {
+        opacity: 1;
+      }
+
+      .hero-list .n {
+        font-size: 0.95rem;
+        font-weight: 600;
+        margin-left: 6px;
+      }
+
+      .hero-list .t {
+        font-size: 1.05rem;
+        font-weight: 600;
+      }
+
+      .hero-list li.active .t {
+        font-size: 1.5rem;
+        font-weight: 800;
+        border-bottom: 2px solid #fff;
+        display: inline-block;
+        padding-bottom: 4px;
+      }
+
+      .hero-list .s {
+        font-size: 0.8rem;
+        opacity: 0.7;
+        display: block;
+        margin-top: 4px;
+      }
+
+      .socials {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .socials a {
+        color: rgba(255, 255, 255, 0.75);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+      }
+
+      .socials a:hover {
+        color: #fff;
+        transform: translateY(-2px);
+      }
+
+      .socials svg {
+        width: 18px;
+        height: 18px;
+        fill: currentColor;
+      }
+
+      .sidebar-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 40;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      @media (max-width: 1100px) {
+        .hero-container {
+          grid-template-columns: 1fr 280px;
+        }
+        .hero-bottom-right {
+          margin-right: 0;
+        }
+        .location-title {
+          font-size: 4.5rem;
+        }
+      }
+
+      @media (max-width: 850px) {
+        .hero-container {
+          grid-template-columns: 1fr;
+        }
+
+        .main-content {
+          grid-column: 1;
+          padding: 80px 30px 40px 30px;
+        }
+
+        .mobile-menu-btn {
+          display: block;
+        }
+
+        .sidebar {
+          grid-column: 1;
+          position: fixed;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          width: 280px;
+          transform: translateX(-100%);
+        }
+
+        .sidebar.open {
+          transform: translateX(0);
+        }
+
+        .sidebar-overlay.active {
+          display: block;
+          opacity: 1;
+        }
+
+        .top-nav {
+          justify-content: center;
+          flex-wrap: wrap;
+          gap: 20px;
+        }
+
+        .hero-bottom-right {
+          align-self: center;
+          align-items: center;
+          text-align: center;
+          margin-bottom: 0;
+        }
+
+        .location-title {
+          font-size: 3.8rem;
+        }
+
+        .search-box {
+          width: 100%;
+          max-width: 320px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .main-content {
+          padding: 80px 20px 30px 20px;
+        }
+        .location-title {
+          font-size: 2.8rem;
+        }
+        .location-subtitle {
+          font-size: 1rem;
+          margin-bottom: 20px;
+        }
+        .top-nav {
+          gap: 15px;
+          font-size: 0.85rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <button class="mobile-menu-btn" id="menuToggle">
+      <svg viewBox="0 0 24 24">
+        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+      </svg>
+    </button>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <div class="hero-container">
+      <div class="hero-dark-overlay"></div>
+
+      <main class="main-content">
+        <nav class="top-nav">
+          <a href="Home.html" class="active">Destinations</a>
+          <a href="bookings.html">Bookings</a>
+          <a href="gallery.html">Gallery</a>
+        </nav>
+
+        <div class="hero-bottom-right">
+          <h1 class="location-title">Afghanistan</h1>
+          <span class="location-subtitle">Band-e Amir</span>
+
+          <div class="search-box">
+            <span class="search-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </span>
+            <input type="text" placeholder="Find a tour" />
+          </div>
+        </div>
+      </main>
+
+      <aside class="sidebar" id="sidebar">
+        <div class="brand">
+          <svg viewBox="0 0 512 512">
+            <path
+              d="M433.2 195.1l-144-144c-11.7-11.7-30.7-11.7-42.4 0l-144 144c-11.7 11.7-11.7 30.7 0 42.4s30.7 11.7 42.4 0l82.6-82.6V448h60V154.9l82.6 82.6c11.7 11.7 30.7 11.7 42.4 0s11.7-30.7 0-42.4z"
+            />
+          </svg>
+          <span>Travel</span>
+        </div>
+
+        <ul class="hero-list" id="heroList">
+          <li data-title="Trips">
+            <span class="n">01</span> <span class="t">Trips</span>
+            <span class="s">280 trips available</span>
+          </li>
+          <li data-title="Destinations">
+            <span class="n">02</span> <span class="t">Destinations</span>
+            <span class="s">Discover more places</span>
+          </li>
+          <li class="active" data-title="Tour guide">
+            <span class="n">03.</span> <span class="t">Tour guide</span>
+            <span class="s">Plan your next adventure</span>
+          </li>
+          <li data-title="Collections">
+            <span class="n">04</span> <span class="t">Collections</span>
+            <span class="s">Find your ideal trip</span>
+          </li>
+        </ul>
+
+        <div class="socials">
+          <a href="#" title="Twitter">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+              />
+            </svg>
+          </a>
+          <a href="#" title="YouTube">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+              />
+            </svg>
+          </a>
+          <a href="#" title="Facebook">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+              />
+            </svg>
+          </a>
+          <a href="#" title="Instagram">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+              />
+            </svg>
+          </a>
+        </div>
+      </aside>
+    </div>
+
+    <script>
+      const items = document.querySelectorAll("#heroList li");
+      items.forEach((li) => {
+        li.addEventListener("click", () => {
+          items.forEach((i) => i.classList.remove("active"));
+          li.classList.add("active");
+        });
+      });
+
+      const menuToggle = document.getElementById("menuToggle");
+      const sidebar = document.getElementById("sidebar");
+      const sidebarOverlay = document.getElementById("sidebarOverlay");
+
+      function toggleMenu() {
+        sidebar.classList.toggle("open");
+        sidebarOverlay.classList.toggle("active");
+      }
+
+      menuToggle.addEventListener("click", toggleMenu);
+
+      sidebarOverlay.addEventListener("click", () => {
+        sidebar.classList.remove("open");
+        sidebarOverlay.classList.remove("active");
+      });
+    </script>
+  </body>
+</html>
