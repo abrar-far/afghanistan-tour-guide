@@ -121,6 +121,8 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 18px;
+        direction: ltr;
+        text-align: left;
       }
       @media (max-width: 560px) {
         form {
@@ -140,6 +142,7 @@
         font-size: 0.82rem;
         font-weight: 600;
         color: #3a4c4f;
+        text-align: left;
       }
       input,
       select {
@@ -149,6 +152,8 @@
         font-family: inherit;
         font-size: 0.9rem;
         background: #faf7ef;
+        direction: ltr;
+        text-align: left;
       }
       input:focus,
       select:focus {
@@ -182,6 +187,8 @@
         color: var(--turquoise-deep);
         font-size: 0.9rem;
         font-weight: 600;
+        text-align: left;
+        direction: ltr;
       }
       .confirm-msg.show {
         display: block;
@@ -196,6 +203,7 @@
     <header>
       <a href="index.html" class="brand">🏔️ Afghanistan</a>
       <nav>
+        <a href="index.html">Home</a>
         <a href="destination.html">Destinations</a>
         <a href="bookings.html" class="active">Booking</a>
         <a href="gallery.html">Gallery</a>
