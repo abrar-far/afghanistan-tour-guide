@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fa" dir="rtl">
+<html lang="en" dir="rtl">
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -186,81 +186,118 @@
         cursor: pointer;
       }
     </style>
+    <link rel="stylesheet" href="css/style.css" />
   </head>
 
   <body>
-    <header>
+    <header class="site-header">
       <a href="index.html" class="brand">🏔️ Afghanistan</a>
-      <nav>
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-controls="siteNav"
+        aria-expanded="false"
+        aria-label="Open site menu"
+      >
+        <span aria-hidden="true">☰</span>
+      </button>
+      <nav class="site-nav" id="siteNav" aria-label="Main navigation">
         <a href="index.html">Home</a>
         <a href="destination.html">Destinations</a>
         <a href="bookings.html">Booking</a>
-        <a href="gallery.html" class="active">Gallery</a>
       </nav>
     </header>
 
-    <div class="page-head">
-      <h1>Gallery</h1>
-      <p>Moments from the land of mountains.</p>
-    </div>
+    <main>
+      <section class="page-head">
+        <h1>Gallery</h1>
+        <p>Moments from the land of mountains.</p>
+      </section>
 
-    <div class="gallery-grid" id="galleryGrid">
-      <div class="gwrap" data-caption="Parwan">
-        <img src="images/FullSizeRender-28.jpg" alt="Parwan" />
-        <span>Parwan</span>
-      </div>
-      <div class="gwrap" data-caption="Noristan">
-        <img src="images/img_2_1790137915663badkhshan.jpg" alt="Noristan" />
-        <span>Noristan</span>
-      </div>
-      <div class="gwrap" data-caption="Mazar-i-Sharif">
-        <img src="images/IMG-20260925-WA0022.jpg" alt="Mazar-i-Sharif" />
-        <span>Mazar-i-Sharif</span>
-      </div>
-      <div class="gwrap" data-caption="Herat">
-        <img src="images/IMG-20260925-WA0011herat.jpg" alt="Herat" />
-        <span>Herat</span>
-      </div>
-      <div class="gwrap" data-caption="Bamyan">
-        <img src="images/IMG-20260925-WA0013bamyan.jpg" alt="Bamyan" />
-        <span>Bamyan</span>
-      </div>
-      <div class="gwrap" data-caption="Kabul">
-        <img src="images/img_2_1790053530279kabul.jpg" alt="Kabul" />
-        <span>Kabul</span>
-      </div>
-    </div>
+      <section
+        class="gallery-grid"
+        id="galleryGrid"
+        aria-label="Afghanistan photo gallery"
+      >
+        <button class="gwrap" type="button" data-caption="Parwan">
+          <img
+            src="images/FullSizeRender-28.jpg"
+            alt="Pink Arghawan blossoms at Gulghundi Hill in Parwan"
+            loading="lazy"
+          />
+          <span aria-hidden="true">Parwan</span>
+        </button>
+        <button class="gwrap" type="button" data-caption="Noristan">
+          <img
+            src="images/img_2_1790137915663badkhshan.jpg"
+            alt="Mountain scenery and green forests in Noristan"
+            loading="lazy"
+          />
+          <span aria-hidden="true">Noristan</span>
+        </button>
+        <button class="gwrap" type="button" data-caption="Mazar-i-Sharif">
+          <img
+            src="images/IMG-20260925-WA0022.jpg"
+            alt="Shrine of Hazrat Ali in Mazar-i-Sharif"
+            loading="lazy"
+          />
+          <span aria-hidden="true">Mazar-i-Sharif</span>
+        </button>
+        <button class="gwrap" type="button" data-caption="Herat">
+          <img
+            src="images/IMG-20260925-WA0011herat.jpg"
+            alt="Historic architecture in Herat"
+            loading="lazy"
+          />
+          <span aria-hidden="true">Herat</span>
+        </button>
+        <button class="gwrap" type="button" data-caption="Bamyan">
+          <img
+            src="images/IMG-20260925-WA0013bamyan.jpg"
+            alt="Mountain valley in Bamyan"
+            loading="lazy"
+          />
+          <span aria-hidden="true">Bamyan</span>
+        </button>
+        <button class="gwrap" type="button" data-caption="Kabul">
+          <img
+            src="images/img_2_1790053530279kabul.jpg"
+            alt="City scenery in Kabul"
+            loading="lazy"
+          />
+          <span aria-hidden="true">Kabul</span>
+        </button>
+      </section>
 
-    <div class="lightbox" id="lightbox">
-      <span class="lightbox-close" id="lightboxClose">✕</span>
-      <div class="lightbox-inner">
-        <img id="lightboxImage" src="" alt="" />
-        <div class="lightbox-caption" id="lightboxCaption"></div>
-      </div>
-    </div>
+      <dialog class="lightbox" id="lightbox" aria-labelledby="lightboxCaption">
+        <button
+          class="lightbox-close"
+          id="lightboxClose"
+          type="button"
+          aria-label="Close image viewer"
+        >
+          ✕
+        </button>
+        <div class="lightbox-inner">
+          <img id="lightboxImage" src="" alt="" />
+          <div class="lightbox-caption" id="lightboxCaption"></div>
+          <div class="lightbox-controls">
+            <button
+              id="lightboxPrevious"
+              type="button"
+              aria-label="Previous image"
+            >
+              ← Previous
+            </button>
+            <button id="lightboxNext" type="button" aria-label="Next image">
+              Next →
+            </button>
+          </div>
+        </div>
+      </dialog>
+    </main>
 
-    <script>
-      const items = document.querySelectorAll("#galleryGrid .gwrap");
-      const lightbox = document.getElementById("lightbox");
-      const lightboxImage = document.getElementById("lightboxImage");
-      const lightboxCaption = document.getElementById("lightboxCaption");
-      const lightboxClose = document.getElementById("lightboxClose");
-
-      items.forEach((item) => {
-        item.addEventListener("click", () => {
-          const imgSrc = item.querySelector("img").src;
-          lightboxImage.src = imgSrc;
-          lightboxCaption.textContent = item.dataset.caption;
-          lightbox.classList.add("show");
-        });
-      });
-
-      lightboxClose.addEventListener("click", () => {
-        lightbox.classList.remove("show");
-      });
-      lightbox.addEventListener("click", (e) => {
-        if (e.target === lightbox) lightbox.classList.remove("show");
-      });
-    </script>
+    <script src="JS/main.js" defer></script>
+    <script src="JS/gallery.js" defer></script>
   </body>
 </html>

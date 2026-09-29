@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fa" dir="rtl">
+<html lang="en" dir="rtl">
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -193,141 +193,101 @@
         font-weight: 600;
       }
     </style>
+    <link rel="stylesheet" href="css/style.css" />
   </head>
 
   <!-- ============================================================
      HTML
      ============================================================ -->
   <body>
-    <header>
+    <header class="site-header">
       <a href="index.html" class="brand">🏔️ Afghanistan</a>
-      <nav>
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-controls="siteNav"
+        aria-expanded="false"
+        aria-label="Open site menu"
+      >
+        <span aria-hidden="true">☰</span>
+      </button>
+      <nav class="site-nav" id="siteNav" aria-label="Main navigation">
         <a href="index.html">Home</a>
-        <a href="destination.html" class="active">Destinations</a>
         <a href="bookings.html">Booking</a>
         <a href="gallery.html">Gallery</a>
       </nav>
     </header>
 
-    <div class="page-head">
-      <h1>Destinations</h1>
-      <p>
-        Explore the places worth visiting across Afghanistan, from turquoise
-        lakes to ancient minarets.
-      </p>
-    </div>
+    <main>
+      <section class="page-head">
+        <h1>Destinations</h1>
+        <p>
+          Explore the places worth visiting across Afghanistan, from turquoise
+          lakes to ancient minarets.
+        </p>
+      </section>
 
-    <div class="grid" id="destinationGrid">
-      <div class="card" data-name="Parwan">
-        <div class="card-image-wrap">
-          <img
-            class="card-image"
-            src="images/FullSizeRender-28.jpg"
-            alt="Parwan"
+      <section class="weather-panel" aria-labelledby="weatherHeading">
+        <h2 id="weatherHeading">Current weather</h2>
+        <p>
+          Check general weather conditions for a destination. Not a
+          travel-safety forecast.
+        </p>
+        <form class="weather-controls" id="weatherForm">
+          <label for="weatherLocation">Destination</label>
+          <select id="weatherLocation">
+            <option>Kabul</option>
+            <option>Bamyan</option>
+            <option>Herat</option>
+            <option>Mazar-i-Sharif</option>
+            <option>Parwan</option>
+            <option>Noristan</option>
+          </select>
+          <button type="submit">Get current weather</button>
+        </form>
+        <p
+          class="weather-result"
+          id="weatherResult"
+          role="status"
+          aria-live="polite"
+        >
+          Choose a destination and request current conditions.
+        </p>
+      </section>
+
+      <section
+        class="destination-tools"
+        aria-label="Search and filter destinations"
+      >
+        <label for="destinationSearch">
+          Search destinations
+          <input
+            type="search"
+            id="destinationSearch"
+            placeholder="Try Herat or mountains"
+            autocomplete="off"
           />
-          <div class="card-dark"></div>
-          <span class="card-tag">Parwan</span>
-        </div>
-        <div class="card-body">
-          <p>Blooming pink Arghawan trees of Gulghundi Hill</p>
-          <span class="btn">View tours</span>
-        </div>
-      </div>
+        </label>
+        <label for="categoryFilter">
+          Category
+          <select id="categoryFilter">
+            <option value="all">All categories</option>
+            <option value="Nature">Nature</option>
+            <option value="Culture">Culture</option>
+            <option value="History">History</option>
+            <option value="City">City</option>
+          </select>
+        </label>
+        <p class="results-count" id="resultsCount" aria-live="polite"></p>
+      </section>
 
-      <div class="card" data-name="Noristan">
-        <div class="card-image-wrap">
-          <img
-            class="card-image"
-            src="images/img_2_1790137915663badkhshan.jpg"
-            alt="Noristan"
-          />
-          <div class="card-dark"></div>
-          <span class="card-tag">Noristan</span>
-        </div>
-        <div class="card-body">
-          <p>
-            Lush green valleys, pine forests, and unique wooden architecture
-          </p>
-          <span class="btn">View tours</span>
-        </div>
-      </div>
+      <section
+        class="grid"
+        id="destinationGrid"
+        aria-label="Destinations"
+      ></section>
+    </main>
 
-      <div class="card" data-name="Mazar-i-Sharif">
-        <div class="card-image-wrap">
-          <img
-            class="card-image"
-            src="images/IMG-20260925-WA0022.jpg"
-            alt="Mazar-i-Sharif"
-          />
-          <div class="card-dark"></div>
-          <span class="card-tag">Mazar-i-Sharif</span>
-        </div>
-        <div class="card-body">
-          <p>Shrine of Hazrat Ali, Balkh province</p>
-          <span class="btn">View tours</span>
-        </div>
-      </div>
-
-      <div class="card" data-name="Herat">
-        <div class="card-image-wrap">
-          <img
-            class="card-image"
-            src="images/IMG-20260925-WA0011herat.jpg"
-            alt="Herat"
-          />
-          <div class="card-dark"></div>
-          <span class="card-tag">Herat</span>
-        </div>
-        <div class="card-body">
-          <p>City of poets and the Great Mosque</p>
-          <span class="btn">View tours</span>
-        </div>
-      </div>
-
-      <div class="card" data-name="Bamyan Buddhas">
-        <div class="card-image-wrap">
-          <img
-            class="card-image"
-            src="images/IMG-20260925-WA0013bamyan.jpg"
-            alt="Bamyan"
-          />
-          <div class="card-dark"></div>
-          <span class="card-tag">Bamyan</span>
-        </div>
-        <div class="card-body">
-          <p>Ancient valley and rock-cut niches</p>
-          <span class="btn">View tours</span>
-        </div>
-      </div>
-
-      <div class="card" data-name="Kabul">
-        <div class="card-image-wrap">
-          <img
-            class="card-image"
-            src="images/img_2_1790053530279kabul.jpg"
-            alt="Kabul"
-          />
-          <div class="card-dark"></div>
-          <span class="card-tag">Kabul</span>
-        </div>
-        <div class="card-body">
-          <p>Capital city, gardens and old bazaars</p>
-          <span class="btn">View tours</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- ============================================================
-     JavaScript
-     ============================================================ -->
-    <script>
-      // Sample click handler for each destination card
-      const cards = document.querySelectorAll("#destinationGrid .card");
-      cards.forEach((card) => {
-        card.addEventListener("click", () => {
-          window.location.href = "bookings.html";
-        });
-      });
-    </script>
+    <script src="JS/main.js" defer></script>
   </body>
 </html>

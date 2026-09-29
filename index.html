@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fa" dir="rtl">
+<html lang="en" dir="rtl">
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -13,6 +13,7 @@
       href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="css/style.css" />
 
     <style>
       * {
@@ -389,7 +390,14 @@
   </head>
 
   <body>
-    <button class="mobile-menu-btn" id="menuToggle">
+    <button
+      class="mobile-menu-btn menu-toggle"
+      id="menuToggle"
+      type="button"
+      aria-controls="sidebar"
+      aria-expanded="false"
+      aria-label="Open site menu"
+    >
       <svg viewBox="0 0 24 24">
         <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
       </svg>
@@ -401,9 +409,9 @@
       <div class="hero-dark-overlay"></div>
 
       <main class="main-content">
-        <nav class="top-nav">
-          <a href="index.html" class="active">Destinations</a>
-          <a href="bookings.html">Bookings</a>
+        <nav class="top-nav" aria-label="Main navigation">
+          <a href="destination.html">Destinations</a>
+          <a href="bookings.html">Booking</a>
           <a href="gallery.html">Gallery</a>
         </nav>
 
@@ -411,7 +419,7 @@
           <h1 class="location-title">Afghanistan</h1>
           <span class="location-subtitle">Band-e Amir</span>
 
-          <div class="search-box">
+          <form class="search-box" id="homeSearchForm" role="search">
             <span class="search-icon">
               <svg
                 viewBox="0 0 24 24"
@@ -424,8 +432,14 @@
                 <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
               </svg>
             </span>
-            <input type="text" placeholder="Find a tour" />
-          </div>
+            <input
+              type="search"
+              id="homeSearch"
+              placeholder="Find a destination"
+              aria-label="Search destinations"
+            />
+            <button class="home-search-submit" type="submit">Search</button>
+          </form>
         </div>
       </main>
 
@@ -441,20 +455,28 @@
 
         <ul class="hero-list" id="heroList">
           <li data-title="Trips">
-            <span class="n">01</span> <span class="t">Trips</span>
-            <span class="s">280 trips available</span>
+            <a href="bookings.html">
+              <span class="n">01</span> <span class="t">Trips</span>
+              <span class="s">Explore a trip request</span>
+            </a>
           </li>
           <li data-title="Destinations">
-            <span class="n">02</span> <span class="t">Destinations</span>
-            <span class="s">Discover more places</span>
+            <a href="destination.html">
+              <span class="n">02</span> <span class="t">Destinations</span>
+              <span class="s">Discover more places</span>
+            </a>
           </li>
           <li class="active" data-title="Tour guide">
-            <span class="n">03.</span> <span class="t">Tour guide</span>
-            <span class="s">Plan your next adventure</span>
+            <a href="bookings.html">
+              <span class="n">03.</span> <span class="t">Tour guide</span>
+              <span class="s">Plan your next adventure</span>
+            </a>
           </li>
           <li data-title="Collections">
-            <span class="n">04</span> <span class="t">Collections</span>
-            <span class="s">Find your ideal trip</span>
+            <a href="gallery.html">
+              <span class="n">04</span> <span class="t">Collections</span>
+              <span class="s">View travel photos</span>
+            </a>
           </li>
         </ul>
 
@@ -491,30 +513,6 @@
       </aside>
     </div>
 
-    <script>
-      const items = document.querySelectorAll("#heroList li");
-      items.forEach((li) => {
-        li.addEventListener("click", () => {
-          items.forEach((i) => i.classList.remove("active"));
-          li.classList.add("active");
-        });
-      });
-
-      const menuToggle = document.getElementById("menuToggle");
-      const sidebar = document.getElementById("sidebar");
-      const sidebarOverlay = document.getElementById("sidebarOverlay");
-
-      function toggleMenu() {
-        sidebar.classList.toggle("open");
-        sidebarOverlay.classList.toggle("active");
-      }
-
-      menuToggle.addEventListener("click", toggleMenu);
-
-      sidebarOverlay.addEventListener("click", () => {
-        sidebar.classList.remove("open");
-        sidebarOverlay.classList.remove("active");
-      });
-    </script>
+    <script src="JS/main.js" defer></script>
   </body>
 </html>
