@@ -280,7 +280,7 @@ if (weatherForm) {
   });
 }
 
-  const items = document.querySelectorAll("#heroList li");
+      const items = document.querySelectorAll("#heroList li");
       items.forEach((li) => {
         li.addEventListener("click", () => {
           items.forEach((i) => i.classList.remove("active"));
@@ -303,3 +303,4 @@ if (weatherForm) {
         sidebar.classList.remove("open");
         sidebarOverlay.classList.remove("active");
       });
+    

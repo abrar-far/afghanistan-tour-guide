@@ -299,8 +299,12 @@ dialog.lightbox[open] {
 }
 
 .form-notice {
-  background: #fff6df;
-  color: #55400f;
+  padding: 10px 12px;
+  border: 1px solid rgba(18, 38, 44, 0.1);
+  background: #f8f5ed;
+  color: #536467;
+  font-size: 0.82rem;
+  font-weight: 500;
 }
 
 .form-feedback {
@@ -388,3 +392,14 @@ dialog.lightbox[open] {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Split Layout for Booking Page */
+.booking-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1200px;
+  margin: 40px auto;
+  gap: 40px;
+  padding: 0 24px;
+}
+

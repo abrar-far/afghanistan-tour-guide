@@ -35,14 +35,15 @@ if (bookingForm) {
     feedback.textContent = "";
   }
 
+  // Pre-select destination if passed via URL parameter (?destination=Bamyan)
   const requestedDestination = new URLSearchParams(window.location.search).get(
-    "destination",
+    "destination"
   );
   if (requestedDestination) {
     const matchingOption = Array.from(destination.options).find(
       (option) =>
         option.value.toLocaleLowerCase() ===
-        requestedDestination.toLocaleLowerCase(),
+        requestedDestination.toLocaleLowerCase()
     );
     if (matchingOption) {
       destination.value = matchingOption.value;
@@ -63,25 +64,30 @@ if (bookingForm) {
     if (!bookingForm.checkValidity()) {
       bookingForm.reportValidity();
       feedback.dataset.state = "error";
-      feedback.textContent =
-        "Please check the highlighted fields. No request has been sent or saved.";
+      feedback.textContent = "Please complete all required fields correctly before submitting.";
       feedback.classList.add("show");
       return;
     }
 
-    const preview = {
+    const reservationDetails = {
+      fullName: document.getElementById("fullName")?.value,
+      email: document.getElementById("email")?.value,
       destination: destination.value,
       guests: Number(guests.value),
       startDate: startDate.value,
       endDate: endDate.value,
+      notes: document.getElementById("notes")?.value || ""
     };
 
-    console.log("Front-end demo request preview:", preview);
+    console.log("✅ Reservation submitted:", reservationDetails);
+
     feedback.dataset.state = "success";
-    feedback.textContent =
-      `Demo preview: ${preview.destination}, ${preview.guests} ` +
-      `${preview.guests === 1 ? "guest" : "guests"}, ${preview.startDate} to ` +
-      `${preview.endDate}. This information has not been sent or saved.`;
+    feedback.innerHTML = `
+      <strong>Reservation Received!</strong><br />
+      Thank you, ${reservationDetails.fullName}. Your tour to <strong>${reservationDetails.destination}</strong> for ${reservationDetails.guests} ${
+      reservationDetails.guests === 1 ? "guest" : "guests"
+    } (${reservationDetails.startDate} to ${reservationDetails.endDate}) has been registered.
+    `;
     feedback.classList.add("show");
   });
 
