@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" dir="rtl">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -13,11 +13,51 @@
       href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <script src="https://cdn.tailwindcss.com"></script>
 
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              background: "#f4efe4",
+              foreground: "#1d2733",
+              card: "#fbf8f0",
+              primary: "#1f3a4d",
+              "primary-foreground": "#f7f3ea",
+              muted: "#8a8f96",
+              accent: "#2e5f7a",
+              night: "#121b26",
+              "night-foreground": "#f2eee2",
+              sand: "#e3c57e",
+            },
+            fontFamily: { sans: ['"Plus Jakarta Sans"', "sans-serif"] },
+          },
+        },
+      };
+    </script>
     <!-- ============================================================
      CSS
      ============================================================ -->
     <style>
+      .logo-type {
+        font-weight: 700;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+      }
+      .hero-scrim {
+        background: linear-gradient(
+          180deg,
+          rgba(18, 27, 38, 0.7) 0%,
+          rgba(18, 27, 38, 0.2) 40%,
+          rgba(18, 27, 38, 0.85) 100%
+        );
+      }
+      .glass {
+        background: rgba(18, 27, 38, 0.45);
+        backdrop-filter: blur(14px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+      }
       :root {
         --ink: #12262c;
         --cream: #f4ede0;
@@ -201,7 +241,7 @@
      ============================================================ -->
   <body>
     <header class="site-header">
-      <a href="index.html" class="brand">🏔️ Afghanistan</a>
+      <a href="index.html" class="logo"> Afghanistan</a>
       <button
         class="menu-toggle"
         type="button"
@@ -213,14 +253,16 @@
       </button>
       <nav class="site-nav" id="siteNav" aria-label="Main navigation">
         <a href="index.html">Home</a>
-        <a href="bookings.html">Booking</a>
         <a href="gallery.html">Gallery</a>
+        <a href="bookings.html">Booking</a>
       </nav>
     </header>
 
     <main>
       <section class="page-head">
-        <h1>Destinations</h1>
+        <h1 class="text-4xl font-extrabold text-primary md:text-5xl">
+          Destinations
+        </h1>
         <p>
           Explore the places worth visiting across Afghanistan, from turquoise
           lakes to ancient minarets.
@@ -237,6 +279,7 @@
           <label for="weatherLocation">Destination</label>
           <select id="weatherLocation">
             <option>Kabul</option>
+            <option>Band-e Amir</option>
             <option>Bamyan</option>
             <option>Herat</option>
             <option>Mazar-i-Sharif</option>
@@ -245,14 +288,14 @@
           </select>
           <button type="submit">Get current weather</button>
         </form>
-        <p
+        <div
           class="weather-result"
           id="weatherResult"
           role="status"
           aria-live="polite"
         >
-          Choose a destination and request current conditions.
-        </p>
+          <p>Choose a destination and request current conditions.</p>
+        </div>
       </section>
 
       <section

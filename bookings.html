@@ -1,382 +1,391 @@
 <!doctype html>
-<html lang="en" dir="rtl">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Book a Tour — Afghanistan</title>
+
     <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, viewport-fit=cover"
+      name="description"
+      content="Reserve your guided Afghanistan tour with a live trip preview and price summary."
     />
-    <title>Afghanistan | Booking & Reservations</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <link
-      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap"
       rel="stylesheet"
     />
 
-    <!-- ============================================================
-       CSS
-       ============================================================ -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              background: "#f4efe4",
+              foreground: "#1d2733",
+              card: "#fbf8f0",
+              primary: "#1f3a4d",
+              "primary-foreground": "#f7f3ea",
+              muted: "#8a8f96",
+              accent: "#2e5f7a",
+              night: "#121b26",
+              "night-foreground": "#f2eee2",
+              sand: "#e3c57e",
+            },
+
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+
     <style>
-      :root {
-        --ink: #12262c;
-        --cream: #f4ede0;
-        --turquoise-deep: #0f4b58;
-        --turquoise-light: #186b7d;
-        --gold: #c99a3c;
-        padding-top: env(safe-area-inset-top, 0px);
-        padding-bottom: env(safe-area-inset-bottom, 0px);
-      }
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      html {
-        scroll-padding-top: env(safe-area-inset-top, 0px);
-      }
-      html,
-      body {
-        background: var(--cream);
-      }
-      body {
-        font-family: "Vazirmatn", sans-serif;
-        color: var(--ink);
-      }
-
-      header {
-        position: sticky;
-        top: env(safe-area-inset-top, 0px);
-        z-index: 10;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 18px 28px;
-        background: rgba(244, 237, 224, 0.95);
-        backdrop-filter: blur(6px);
-        border-bottom: 1px solid rgba(18, 38, 44, 0.08);
-      }
-      .brand {
-        display: flex;
-        align-items: center;
-        gap: 8px;
+      .logo-type {
         font-weight: 700;
-        font-size: 1.05rem;
-        color: var(--turquoise-deep);
-        text-decoration: none;
-      }
-      nav {
-        display: flex;
-        gap: 24px;
-        font-size: 0.9rem;
-        font-weight: 500;
-      }
-      nav a {
-        opacity: 0.8;
-        color: inherit;
-        text-decoration: none;
-        transition: opacity 0.2s;
-      }
-      nav a:hover {
-        opacity: 1;
-      }
-      nav a.active {
-        opacity: 1;
-        color: var(--turquoise-deep);
-        font-weight: 700;
-      }
-      @media (max-width: 680px) {
-        nav {
-          display: none;
-        }
-      }
-
-      .page-head {
-        padding: 48px 28px 12px;
-        max-width: 720px;
-        margin: 0 auto;
-        text-align: left;
-        direction: ltr;
-      }
-      .page-head h1 {
-        font-size: 2.3rem;
-        font-weight: 800;
-        color: var(--turquoise-deep);
-        margin-bottom: 6px;
-        letter-spacing: -0.5px;
-      }
-      .page-head p {
-        color: #5b6b6d;
-        font-size: 0.98rem;
-        line-height: 1.5;
-      }
-
-      .form-wrap {
-        max-width: 720px;
-        margin: 20px auto 70px;
-        padding: 0 28px;
-      }
-      form {
-        background: #ffffff;
-        border-radius: 20px;
-        padding: 36px;
-        border: 1px solid rgba(18, 38, 44, 0.08);
-        box-shadow: 0 12px 32px rgba(18, 38, 44, 0.04);
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-        direction: ltr;
-        text-align: left;
-      }
-      @media (max-width: 560px) {
-        form {
-          grid-template-columns: 1fr;
-          padding: 24px;
-        }
-      }
-
-      .form-header {
-        grid-column: 1 / -1;
-        border-bottom: 1px solid rgba(18, 38, 44, 0.08);
-        padding-bottom: 16px;
-        margin-bottom: 4px;
-      }
-      .form-header h2 {
-        font-size: 1.25rem;
-        font-weight: 700;
-        color: var(--turquoise-deep);
-      }
-      .form-header p {
-        font-size: 0.85rem;
-        color: #6a7c7f;
-        margin-top: 2px;
-      }
-
-      .field {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-      }
-      .field.full {
-        grid-column: 1 / -1;
-      }
-      label {
-        font-size: 0.82rem;
-        font-weight: 700;
-        color: #2c3e42;
+        letter-spacing: 0.32em;
         text-transform: uppercase;
-        letter-spacing: 0.3px;
-      }
-      input,
-      select {
-        padding: 12px 14px;
-        border-radius: 10px;
-        border: 1px solid rgba(18, 38, 44, 0.16);
-        font-family: inherit;
-        font-size: 0.92rem;
-        background: #fcfaf5;
-        color: var(--ink);
-        direction: ltr;
-        text-align: left;
-        transition:
-          border-color 0.2s,
-          box-shadow 0.2s;
-      }
-      input:focus,
-      select:focus {
-        outline: none;
-        border-color: var(--turquoise-deep);
-        box-shadow: 0 0 0 3px rgba(15, 75, 88, 0.15);
-        background: #ffffff;
       }
 
-      .field-hint {
-        font-size: 0.75rem;
-        color: #728487;
-      }
-      .field-error {
-        font-size: 0.78rem;
-        color: #c0392b;
-        font-weight: 600;
+      html {
+        scroll-padding-top: 6rem;
       }
 
-      .submit-btn {
-        grid-column: 1 / -1;
-        margin-top: 8px;
-        background: var(--turquoise-deep);
-        color: #ffffff;
-        border: none;
-        padding: 15px;
-        border-radius: 999px;
-        font-weight: 700;
-        font-size: 0.98rem;
-        cursor: pointer;
-        transition:
-          background-color 0.2s,
-          transform 0.1s;
-      }
-      .submit-btn:hover {
-        background: var(--turquoise-light);
-      }
-      .submit-btn:active {
-        transform: scale(0.99);
+      /* Mobile navigation */
+      .site-nav {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
       }
 
-      .confirm-msg {
+      .menu-toggle {
         display: none;
-        grid-column: 1 / -1;
-        margin-top: 10px;
-        padding: 16px 20px;
-        border-radius: 12px;
-        background: #e6f4f1;
-        border-left: 4px solid var(--turquoise-deep);
-        color: var(--turquoise-deep);
-        font-size: 0.9rem;
-        font-weight: 600;
-        line-height: 1.5;
-        text-align: left;
-        direction: ltr;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        border: 0;
+        background: transparent;
+        color: #1f3a4d;
+        cursor: pointer;
       }
-      .confirm-msg.show {
-        display: block;
-      }
-      .confirm-msg[data-state="error"] {
-        background: #fdf2f2;
-        border-left-color: #d9534f;
-        color: #a94442;
+
+      @media (max-width: 767px) {
+        .menu-toggle {
+          display: flex;
+        }
+
+        .site-nav {
+          display: none;
+          width: 100%;
+          flex-direction: column;
+          align-items: stretch;
+          gap: 0;
+          margin-top: 1rem;
+          padding: 0.75rem 0 1rem;
+          border-top: 1px solid rgba(18, 27, 38, 0.1);
+        }
+
+        .site-nav.is-open {
+          display: flex;
+        }
+
+        .site-nav a {
+          padding: 0.75rem 0;
+        }
       }
     </style>
-    <link rel="stylesheet" href="css/style.css" />
   </head>
 
-  <!-- ============================================================
-       HTML
-       ============================================================ -->
-  <body>
-    <header class="site-header">
-      <a href="index.html" class="brand">🏔️ Afghanistan</a>
-      <button
-        class="menu-toggle"
-        type="button"
-        aria-controls="siteNav"
-        aria-expanded="false"
-        aria-label="Open site menu"
+  <body class="scroll-smooth bg-background font-sans text-foreground">
+    <!-- Header -->
+    <header
+      class="sticky inset-x-0 top-0 z-40 border-b bg-background/90 text-primary backdrop-blur"
+    >
+      <div
+        class="mx-auto flex max-w-7xl flex-wrap items-center justify-between px-6 py-5"
       >
-        <span aria-hidden="true">☰</span>
-      </button>
-      <nav class="site-nav" id="siteNav" aria-label="Main navigation">
-        <a href="index.html">Home</a>
-        <a href="destination.html">Destinations</a>
-        <a href="gallery.html">Gallery</a>
-      </nav>
+        <a href="index.html" class="logo-type text-sm md:text-base">
+          Afghanistan
+        </a>
+
+        <!-- Mobile menu button -->
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-controls="siteNav"
+          aria-expanded="false"
+          aria-label="Open site menu"
+        >
+          <svg
+            class="h-6 w-6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+
+        <!-- Navigation -->
+        <nav
+          class="site-nav hidden items-center gap-8 text-sm font-medium md:flex"
+          id="siteNav"
+          aria-label="Main navigation"
+        >
+          <a href="index.html" class="opacity-80 transition hover:opacity-100">
+            Home
+          </a>
+
+          <a
+            href="destination.html"
+            class="opacity-80 transition hover:opacity-100"
+          >
+            Destinations
+          </a>
+
+          <a
+            href="gallery.html"
+            class="opacity-80 transition hover:opacity-100"
+          >
+            Gallery
+          </a>
+        </nav>
+      </div>
     </header>
 
-    <main>
-      <section class="page-head">
-        <h1>Book Your Tour</h1>
-        <p>
-          Select your destination, travel dates, and party size to confirm your
-          reservation.
-        </p>
+    <!-- Main -->
+    <main
+      class="mx-auto grid max-w-7xl gap-10 px-6 py-16 lg:grid-cols-[1.1fr_1fr]"
+    >
+      <!-- Booking form -->
+      <section>
+        <h1 class="text-4xl font-extrabold text-primary md:text-5xl">
+          Book your journey
+        </h1>
+
+        <div
+          id="formFeedback"
+          role="status"
+          class="mt-6 hidden rounded-xl border border-emerald-600/40 bg-emerald-600/10 px-5 py-4 text-sm font-medium text-emerald-700"
+        ></div>
+
+        <form
+          id="bookingForm"
+          novalidate
+          class="mt-8 grid gap-5 sm:grid-cols-2"
+        >
+          <!-- Full name -->
+          <label class="text-sm font-medium sm:col-span-2">
+            Full name
+
+            <input
+              id="fullName"
+              name="name"
+              type="text"
+              required
+              minlength="2"
+              autocomplete="name"
+              class="mt-1 w-full rounded-lg border bg-card px-4 py-3 outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/30 [&.touched:invalid]:border-red-600"
+            />
+          </label>
+
+          <!-- Email -->
+          <label class="text-sm font-medium sm:col-span-2">
+            Email
+
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              autocomplete="email"
+              class="mt-1 w-full rounded-lg border bg-card px-4 py-3 outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/30 [&.touched:invalid]:border-red-600"
+            />
+          </label>
+
+          <!-- Destination -->
+          <label class="text-sm font-medium">
+            Destination
+
+            <select
+              id="destination"
+              name="destination"
+              required
+              class="mt-1 w-full rounded-lg border bg-card px-4 py-3 outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/30 [&.touched:invalid]:border-red-600"
+            >
+              <option value="">Choose a destination</option>
+              <option value="Band-e Amir">Band-e Amir</option>
+              <option value="Bamyan">Bamyan</option>
+              <option value="Herat">Herat</option>
+              <option value="Kabul">Kabul</option>
+              <option value="Mazar-i-Sharif">Mazar-i-Sharif</option>
+              <option value="Noristan">Noristan</option>
+              <option value="Parwan">Parwan</option>
+            </select>
+          </label>
+
+          <!-- Guests -->
+          <label class="text-sm font-medium">
+            Guests
+
+            <input
+              id="guests"
+              name="guests"
+              type="number"
+              min="1"
+              max="12"
+              value="2"
+              required
+              class="mt-1 w-full rounded-lg border bg-card px-4 py-3 outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/30 [&.touched:invalid]:border-red-600"
+            />
+          </label>
+
+          <!-- Start date -->
+          <label class="text-sm font-medium">
+            Start date
+
+            <input
+              id="startDate"
+              name="startDate"
+              type="date"
+              required
+              class="mt-1 w-full rounded-lg border bg-card px-4 py-3 outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/30 [&.touched:invalid]:border-red-600"
+            />
+          </label>
+
+          <!-- End date -->
+          <label class="text-sm font-medium">
+            End date
+
+            <input
+              id="endDate"
+              name="endDate"
+              type="date"
+              required
+              class="mt-1 w-full rounded-lg border bg-card px-4 py-3 outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/30 [&.touched:invalid]:border-red-600"
+            />
+          </label>
+
+          <small
+            id="endDateError"
+            class="text-sm text-red-600 sm:col-span-2"
+            role="alert"
+          ></small>
+
+          <!-- Special requests -->
+          <label class="text-sm font-medium sm:col-span-2">
+            Special requests
+
+            <textarea
+              id="notes"
+              name="notes"
+              rows="4"
+              class="mt-1 w-full rounded-lg border bg-card px-4 py-3 outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/30"
+            ></textarea>
+          </label>
+
+          <!-- Submit -->
+          <button
+            type="submit"
+            class="rounded-full bg-primary px-8 py-4 font-semibold text-primary-foreground transition hover:bg-accent sm:col-span-2 sm:justify-self-start"
+          >
+            Confirm booking
+          </button>
+        </form>
       </section>
 
-      <div class="form-wrap">
-        <form id="bookingForm">
-          <div class="form-header">
-            <h2>Reservation Details</h2>
-            <p>
-              Please complete all required fields to proceed with your travel
-              request.
-            </p>
+      <!-- Trip preview -->
+      <aside class="lg:sticky lg:top-28 lg:self-start">
+        <div
+          class="overflow-hidden rounded-2xl bg-night text-night-foreground shadow-xl"
+        >
+          <img id="p-img" class="aspect-[16/10] w-full object-cover" alt="" />
+
+          <div class="p-7">
+            <p
+              id="p-region"
+              class="text-xs uppercase tracking-widest opacity-60"
+            ></p>
+
+            <h2 id="p-name" class="text-2xl font-bold"></h2>
+
+            <ul id="p-itin" class="mt-5 space-y-2 text-sm"></ul>
+
+            <dl class="mt-6 space-y-2 border-t border-white/15 pt-5 text-sm">
+              <div class="flex justify-between">
+                <dt class="opacity-70">Rate</dt>
+                <dd id="p-rate"></dd>
+              </div>
+
+              <div class="flex justify-between">
+                <dt class="opacity-70">Nights</dt>
+                <dd id="p-nights"></dd>
+              </div>
+
+              <div class="flex justify-between">
+                <dt class="opacity-70">Guests</dt>
+                <dd id="p-guests"></dd>
+              </div>
+
+              <div class="flex justify-between pt-2 text-lg font-bold">
+                <dt>Total</dt>
+                <dd id="p-total" class="text-sand"></dd>
+              </div>
+            </dl>
           </div>
+        </div>
 
-          <div class="field">
-            <label for="fullName">Full Name</label>
-            <input
-              type="text"
-              id="fullName"
-              autocomplete="name"
-              placeholder="John Doe"
-              required
-            />
-          </div>
+        <!-- Saved bookings -->
+        <div id="saved-box" class="mt-6 hidden rounded-2xl border bg-card p-6">
+          <h3 class="font-semibold text-primary">Your bookings</h3>
 
-          <div class="field">
-            <label for="email">Email Address</label>
-            <input
-              type="email"
-              id="email"
-              autocomplete="email"
-              placeholder="name@example.com"
-              required
-            />
-          </div>
-
-          <div class="field">
-            <label for="destination">Destination</label>
-            <select id="destination" required>
-              <option value="Band-e Amir">Band-e Amir</option>
-              <option value="Minaret of Jam">Minaret of Jam</option>
-              <option value="Parwan">Parwan</option>
-              <option value="Noristan">Noristan</option>
-              <option value="Mazar-i-Sharif">Mazar-i-Sharif</option>
-              <option value="Herat">Herat</option>
-              <option value="Bamyan">Bamyan</option>
-              <option value="Kabul">Kabul</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label for="guests">Guests</label>
-            <input
-              type="number"
-              id="guests"
-              min="1"
-              step="1"
-              value="1"
-              required
-            />
-            <span class="field-hint">Enter total number of travelers.</span>
-          </div>
-
-          <div class="field">
-            <label for="startDate">Start Date</label>
-            <input type="date" id="startDate" required />
-            <span class="field-error" id="startDateError"></span>
-          </div>
-
-          <div class="field">
-            <label for="endDate">End Date</label>
-            <input type="date" id="endDate" required />
-            <span
-              class="field-error"
-              id="endDateError"
-              aria-live="polite"
-            ></span>
-          </div>
-
-          <div class="field full">
-            <label for="notes">Special Notes & Requests</label>
-            <input
-              type="text"
-              id="notes"
-              placeholder="e.g. Dietary preferences, accessibility needs, or flight details"
-            />
-          </div>
-
-          <button type="submit" class="submit-btn">Confirm Reservation</button>
-
-          <div
-            class="confirm-msg"
-            id="formFeedback"
-            role="status"
-            aria-live="polite"
-          ></div>
-        </form>
-      </div>
+          <ul id="saved" class="mt-3 divide-y text-sm"></ul>
+        </div>
+      </aside>
     </main>
 
+    <!-- Shared site JavaScript -->
     <script src="JS/main.js" defer></script>
+
+    <!-- Booking JavaScript -->
     <script src="JS/booking.js" defer></script>
+
+    <!-- Mobile navigation -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const menuToggle = document.querySelector(".menu-toggle");
+        const siteNav = document.querySelector("#siteNav");
+
+        if (!menuToggle || !siteNav) return;
+
+        menuToggle.addEventListener("click", () => {
+          const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+
+          menuToggle.setAttribute("aria-expanded", String(!isOpen));
+          menuToggle.setAttribute(
+            "aria-label",
+            isOpen ? "Open site menu" : "Close site menu",
+          );
+
+          siteNav.classList.toggle("is-open", !isOpen);
+        });
+
+        siteNav.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => {
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.setAttribute("aria-label", "Open site menu");
+            siteNav.classList.remove("is-open");
+          });
+        });
+      });
+    </script>
   </body>
 </html>

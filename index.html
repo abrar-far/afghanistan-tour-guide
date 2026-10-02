@@ -216,8 +216,8 @@
 
       .brand svg {
         fill: #fff;
-        width: 32px;
-        height: 32px;
+        width: 110px;
+        height:110px;
       }
 
       .hero-list {
@@ -446,11 +446,49 @@
       <aside class="sidebar" id="sidebar">
         <div class="brand">
           <svg viewBox="0 0 512 512">
-            <path
+            <!-- <path
               d="M433.2 195.1l-144-144c-11.7-11.7-30.7-11.7-42.4 0l-144 144c-11.7 11.7-11.7 30.7 0 42.4s30.7 11.7 42.4 0l82.6-82.6V448h60V154.9l82.6 82.6c11.7 11.7 30.7 11.7 42.4 0s11.7-30.7 0-42.4z"
-            />
-          </svg>
-          <span>Travel</span>
+            /> -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
+  <defs>
+    <!-- ایجاد ماسک برای شفاف کردن فاصله‌های خالی استنسیل -->
+    <mask id="stencil-cutout">
+      <rect x="0" y="0" width="800" height="800" fill="#ffffff" />
+      <rect x="306" y="340" width="8" height="142" fill="#000000" />
+      <rect x="441" y="340" width="8" height="142" fill="#000000" />
+    </mask>
+  </defs>
+
+  <g fill="#ffffff" mask="url(#stencil-cutout)">
+    <!-- Airplane -->
+    <g transform="translate(335, 235) rotate(-22)">
+      <!-- Fuselage -->
+      <path d="M 0 -85 C 6 -55, 7 20, 0 65 C -7 20, -6 -55, 0 -85 Z" />
+      <!-- Main Wings -->
+      <path d="M 0 -22 L 72 10 L 72 26 L 0 5 L -72 26 L -72 10 Z" />
+      <!-- Tail Wings -->
+      <path d="M 0 48 L 32 62 L 32 70 L 0 58 L -32 70 L -32 62 Z" />
+    </g>
+
+    <!-- Swoosh Trail -->
+    <path d="M 352 315 C 340 370, 365 455, 425 488 C 475 515, 525 522, 545 490 C 512 514, 448 502, 398 462 C 358 422, 342 360, 355 315 Z" />
+
+    <!-- TOUR Text -->
+    <!-- T -->
+    <path d="M 130 342 H 240 V 372 H 202 V 480 H 168 V 372 H 130 Z" />
+    <!-- O -->
+    <path d="M 310 342 C 262 342, 250 370, 250 411 C 250 452, 262 480, 310 480 C 358 480, 370 452, 370 411 C 370 370, 358 342, 310 342 Z M 310 372 C 328 372, 336 388, 336 411 C 336 434, 328 450, 310 450 C 292 450, 284 434, 284 411 C 284 388, 292 372, 310 372 Z" />
+    <!-- U -->
+    <path d="M 390 342 H 424 V 430 C 424 445, 432 452, 445 452 C 458 452, 466 445, 466 430 V 342 H 500 V 430 C 500 465, 480 480, 445 480 C 410 480, 390 465, 390 430 Z" />
+    <!-- R -->
+    <path d="M 520 342 H 585 C 615 342, 630 358, 630 382 C 630 400, 618 412, 598 416 L 632 480 H 593 L 563 422 H 554 V 480 H 520 Z M 554 370 V 398 H 580 C 590 398, 596 392, 596 384 C 596 376, 590 370, 580 370 Z" />
+  </g>
+
+  <!-- TRAVEL Subtitle -->
+  <text x="400" y="425" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="bold" fill="#ffffff" opacity="0.85" letter-spacing="12" text-anchor="middle">TRAVEL</text>
+</svg>
+<!-- 
+          <span>Travel</span> -->
         </div>
 
         <ul class="hero-list" id="heroList">

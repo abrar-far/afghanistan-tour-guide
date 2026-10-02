@@ -231,6 +231,38 @@ textarea:focus-visible,
   color: #8a2525;
 }
 
+.weather-live {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.weather-live img {
+  width: 80px;
+  height: 80px;
+}
+
+.weather-live-place {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #5b6b6d;
+}
+
+.weather-live-temp {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--turquoise-deep);
+  line-height: 1.1;
+}
+
+.weather-live-status {
+  margin-top: 2px;
+  font-size: 0.9rem;
+}
+
 .card .btn {
   text-decoration: none;
 }
@@ -403,3 +435,174 @@ dialog.lightbox[open] {
   padding: 0 24px;
 }
 
+/* فراخوانی فونت مدرن و تمیز */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;800&display=swap');
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 48px;
+  background-color: #f3eee6; /* رنگ پس‌زمینه بژ/کرم */
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  border-bottom: 1px solid rgba(18, 38, 44, 0.08);
+}
+
+/* استایل لوگوی AFGHANISTAN */
+.logo {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #0f4b58; /* رنگ فیروزه‌ای تیره */
+  text-transform: uppercase;
+  letter-spacing: 0.35em; /* ایجاد فاصله بین حروف */
+  text-decoration: none;
+}
+
+/* استایل لینک‌های منو */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px; /* فاصله بین آیتم‌های منو */
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #527076; /* رنگ خاکستری-فیروزه‌ای غیرفعال */
+  font-size: 0.92rem;
+  font-weight: 500;
+  padding-bottom: 4px;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #0f4b58;
+}
+
+/* لینک فعال (مثل Destinations در تصویر) */
+.nav-links a.active {
+  color: #0f4b58;
+  font-weight: 600;
+  border-bottom: 2px solid #0f4b58; /* خط زیرین صفحه فعال */
+}
+/* به انتهای css/style.css اضافه کن */
+/* ===== نشان هوا (گوشه‌ی کارت و پیش‌نمایش) ===== */
+.weather-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: rgba(18, 38, 44, 0.55);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff;
+  font-size: 0.78rem;
+  line-height: 1;
+  direction: ltr;
+}
+.weather-badge[hidden] {
+  display: none;
+}
+.weather-badge strong {
+  font-weight: 700;
+}
+.weather-badge span {
+  opacity: 0.85;
+}
+
+/* ===== کل کارت مقصد قابل کلیک ===== */
+.card {
+  position: relative;
+}
+.card .btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+}
+.card:focus-within {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+.card .btn:focus-visible {
+  outline: none;
+}
+
+/* ===== صفحه‌ی رزرو: فرم + پیش‌نمایش مقصد ===== */
+.booking-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 32px;
+  align-items: start;
+  max-width: 1100px;
+  margin: 20px auto 70px;
+  padding: 0 28px;
+}
+.booking-layout .form-wrap {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+.destination-preview {
+  position: sticky;
+  top: 90px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #fff;
+  border: 1px solid rgba(18, 38, 44, 0.08);
+  box-shadow: 0 12px 32px rgba(18, 38, 44, 0.06);
+  direction: ltr;
+  text-align: left;
+}
+.preview-image-wrap {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: #274e57;
+}
+.preview-image-wrap img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.preview-body {
+  padding: 20px 24px 24px;
+}
+.preview-category {
+  color: var(--turquoise-deep);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.preview-body h2 {
+  margin: 4px 0 6px;
+  color: var(--turquoise-deep);
+  font-size: 1.5rem;
+}
+.preview-body p:last-child {
+  color: #5b6b6d;
+  line-height: 1.5;
+}
+.confirm-msg strong {
+  display: block;
+  margin-bottom: 2px;
+}
+@media (max-width: 900px) {
+  .booking-layout {
+    grid-template-columns: 1fr;
+  }
+  .destination-preview {
+    position: static;
+    order: -1;
+  }
+}
+
+body:has(.booking-layout) .page-head {
+  max-width: 1100px;
+}
