@@ -441,24 +441,6 @@ if (weatherForm) {
         });
       }
 
-      const menuToggle = document.getElementById("menuToggle");
-      const sidebar = document.getElementById("sidebar");
-      const sidebarOverlay = document.getElementById("sidebarOverlay");
-
-      if (menuToggle && sidebar && sidebarOverlay) {
-        function toggleMenu() {
-          sidebar.classList.toggle("open");
-          sidebarOverlay.classList.toggle("active");
-        }
-
-        menuToggle.addEventListener("click", toggleMenu);
-
-        sidebarOverlay.addEventListener("click", () => {
-          sidebar.classList.remove("open");
-          sidebarOverlay.classList.remove("active");
-        });
-      }
-
 // //       // ==========================================
 // // // Safe Mobile Menu Toggle (Runs on all pages)
 // // // ==========================================

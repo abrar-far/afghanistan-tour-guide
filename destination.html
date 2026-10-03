@@ -13,6 +13,10 @@
       href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
 
     <script>
@@ -234,28 +238,176 @@
       }
     </style>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/mobile-menu.css" />
+    <style>
+      .booking-style-header {
+        display: block;
+        width: 100%;
+        padding: 0;
+        border-bottom: 1px solid #e5e7eb;
+        background: rgba(244, 239, 228, 0.9);
+        color: #1f3a4d;
+        backdrop-filter: blur(8px);
+        font-family: "Plus Jakarta Sans", sans-serif;
+      }
+
+      .booking-style-header__inner {
+        display: flex;
+        width: 100%;
+        max-width: 80rem;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 auto;
+        padding: 1.25rem 1.5rem;
+      }
+
+      .booking-style-logo {
+        color: #1f3a4d;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 0.875rem;
+        font-weight: 700;
+        letter-spacing: 0.32em;
+        line-height: 24px;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+
+      .booking-style-nav {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 0.875rem;
+        font-weight: 500;
+        line-height: 20px;
+      }
+
+      .booking-style-nav a {
+        color: #1f3a4d;
+        opacity: 0.8;
+        text-decoration: none;
+        transition: opacity 0.2s ease;
+      }
+
+      .booking-style-nav a:hover,
+      .booking-style-nav a[aria-current="page"] {
+        color: #1f3a4d;
+        opacity: 1;
+      }
+
+      .booking-style-nav a[aria-current="page"] {
+        font-weight: 700;
+      }
+
+      @media (min-width: 768px) {
+        .booking-style-logo {
+          font-size: 1rem;
+        }
+      }
+
+      @media (max-width: 850px) {
+        .booking-style-nav {
+          display: none;
+        }
+      }
+    </style>
   </head>
 
   <!-- ============================================================
      HTML
      ============================================================ -->
   <body>
-    <header class="site-header">
-      <a href="index.html" class="logo"> Afghanistan</a>
-      <button
-        class="menu-toggle"
-        type="button"
-        aria-controls="siteNav"
-        aria-expanded="false"
-        aria-label="Open site menu"
+    <div class="mobile-menu-overlay" id="sidebarOverlay"></div>
+    <nav class="mobile-menu-panel" id="sidebar" aria-label="Mobile navigation">
+      <a
+        class="mobile-menu-brand"
+        href="index.html"
+        aria-label="Afghanistan Tour home"
       >
-        <span aria-hidden="true">☰</span>
-      </button>
-      <nav class="site-nav" id="siteNav" aria-label="Main navigation">
-        <a href="index.html">Home</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="bookings.html">Booking</a>
-      </nav>
+        <img src="images/tour-logo.svg" alt="TOUR Travel" />
+      </a>
+      <ul class="mobile-menu-list">
+        <li data-title="Trips">
+          <a href="index.html">
+            <span class="title">Home</span> <span class="number">01</span>
+            <span class="description">Explore a trip request</span>
+          </a>
+        </li>
+        <li class="active" data-title="Destinations">
+          <a href="destination.html" aria-current="page">
+            <span class="title">Destinations</span>
+            <span class="number">02</span>
+            <span class="description">Discover more places</span>
+          </a>
+        </li>
+        <li data-title="Tour guide">
+          <a href="bookings.html">
+            <span class="title">Tour guide</span> <span class="number">03</span>
+            <span class="description">Plan your next adventure</span>
+          </a>
+        </li>
+        <li data-title="Gallery">
+          <a href="gallery.html">
+            <span class="title">Gallery</span>
+            <span class="number">04</span>
+            <span class="description">View travel photos</span>
+          </a>
+        </li>
+      </ul>
+      <div class="mobile-menu-socials" aria-label="Social media links">
+        <a href="#" title="Instagram" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.011 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+            />
+          </svg>
+        </a>
+        <a href="#" title="Facebook" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+            />
+          </svg>
+        </a>
+        <a href="#" title="YouTube" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+            />
+          </svg>
+        </a>
+        <a href="#" title="X" aria-label="X">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+            />
+          </svg>
+        </a>
+      </div>
+    </nav>
+    <header class="site-header booking-style-header">
+      <div class="booking-style-header__inner">
+        <a href="index.html" class="booking-style-logo">Afghanistan</a>
+        <button
+          class="mobile-menu-btn menu-toggle"
+          id="menuToggle"
+          type="button"
+          aria-controls="sidebar"
+          aria-expanded="false"
+          aria-label="Open site menu"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </button>
+        <nav class="site-nav booking-style-nav" id="siteNav" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="destination.html" aria-current="page">Destinations</a>
+          <a href="bookings.html">Booking</a>
+          <a href="gallery.html">Gallery</a>
+        </nav>
+      </div>
     </header>
 
     <main>
