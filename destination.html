@@ -321,6 +321,24 @@
           display: none;
         }
       }
+
+      @media (max-width: 680px) {
+        main > .page-head {
+          width: min(100% - 32px, 1100px);
+          padding: 32px 0 8px;
+        }
+
+        main > .grid {
+          width: min(100% - 32px, 1100px);
+          grid-template-columns: minmax(0, 1fr);
+          gap: 16px;
+          padding: 24px 0 48px;
+        }
+
+        main > .grid > .card {
+          min-width: 0;
+        }
+      }
     </style>
   </head>
 
